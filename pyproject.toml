@@ -1,0 +1,22 @@
+[project]
+name = "trino-concurrency-executor"
+version = "0.1"
+readme = "README.md"
+authors = [{ name = "treaditup", email = "treaditup@gmail.com" }]
+license = { text = "MIT" }
+description = "GoPy example"
+requires-python = ">=3.7"
+dependencies = ["pybindgen>=0.22.1"]
+
+[build-system]
+requires = ["setuptools>=66.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+execute = "execute_query.main:main"

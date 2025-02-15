@@ -1,0 +1,2 @@
+PyBindGen==0.22.1
+setuptools==75.8.0
