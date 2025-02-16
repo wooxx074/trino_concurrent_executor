@@ -42,8 +42,8 @@ jobs:
       id: upload-artifact
       uses: actions/upload-artifact@v4
       with:
-        name: trino_concurrency_executor__gopy
-        path: dist/${{ steps.upload-artifact.outputs.artifact-name }}
+        name: trino_concurrency_executor__gopy-${{ matrix.os }}-${{ matrix.python-version }}
+        path: dist/
 
     - name: Upload arifact to release
       env:
