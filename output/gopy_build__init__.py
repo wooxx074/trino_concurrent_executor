@@ -1,1 +1,1 @@
-from .trino_concurrent_executor import hello_world
+from trino_concurrent_executor import hello_world

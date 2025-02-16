@@ -8,7 +8,7 @@ requires-python = ">=3.7"
 dependencies = ["pybindgen>=0.22.1"]
 
 [build-system]
-requires = ["setuptools>=66.0"]
+requires = ["setuptools>=66.0", "wheel", "Cython"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
@@ -17,3 +17,6 @@ include = ["trino_concurrent_executor"]
 
 [tool.setuptools.package-data]
 "*" = ["*.so", "*.py"]
+
+[tool.cython]
+language_level = "3"
