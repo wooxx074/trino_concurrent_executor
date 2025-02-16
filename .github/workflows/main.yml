@@ -33,6 +33,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: gopy-library
-        path: | 
-          src/
-          src/trino_concurrent_executor/go/py_build/*
+        path: src/
+        include-hidden-files: true
