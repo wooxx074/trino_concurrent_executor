@@ -13,10 +13,11 @@ requires = ["setuptools>=66.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-include-package-data = true
+package-dir = {"" = "src/python/"}
+packages = ["trino_concurrent_executor"]
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.setuptools.package-data]
+trino_concurrent_executor = ["*.so", "*.py"]
 
 [project.scripts]
 execute = "execute_query.main:main"

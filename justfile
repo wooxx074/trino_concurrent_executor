@@ -1,4 +1,5 @@
-go_dir := "src/trino_concurrent_executor/go"
+go_dir := "src/go/trino_concurrent_executor"
+gopy_build_path := "src/python/trino_concurrent_executor"
 
 local_bin := justfile_directory() + "/bin"
 local_path := local_bin + ":" + env("PATH")
@@ -21,8 +22,9 @@ export PATH := local_path
 
 # Build Go bindings
 @build:
-    {{ local_bin }}/gopy build --output=./{{ go_dir }}/py_build -no-make=true -rename=true -vm=python ./{{ go_dir }}/source
-
+    {{ local_bin }}/gopy build --output=./{{ gopy_build_path }} -no-make=true -rename=true -vm=python ./{{ go_dir }}/source
+    rm ./{{ gopy_build_path }}/__init__.py
+    cp ./src/python/gopy_build__init__.py ./{{ gopy_build_path }}/__init__.py
 # Remove build Go bindings
 @remove-build:
-	find ./{{ go_dir }}/py_build/ ! -name ".gitkeep" -type f -exec rm -f {} +
+	find ./{{ gopy_build_path }} ! -name ".gitkeep" -type f -exec rm -f {} +
