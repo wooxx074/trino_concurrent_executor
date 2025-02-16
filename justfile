@@ -1,5 +1,5 @@
 go_dir := "src/go/trino_concurrent_executor"
-gopy_build_path := "src/python/trino_concurrent_executor"
+gopy_build_path := "output/trino_concurrent_executor"
 
 local_bin := justfile_directory() + "/bin"
 local_path := local_bin + ":" + env("PATH")
@@ -24,7 +24,7 @@ export PATH := local_path
 # Build Go bindings
 @build:
     {{ local_bin }}/gopy build --output=./{{ gopy_build_path }} -no-make=true -rename=true -vm=python ./{{ go_dir }}/source
-    cp -f ./src/python/gopy_build__init__.py ./{{ gopy_build_path }}/__init__.py
+    cp -f ./output/gopy_build__init__.py ./{{ gopy_build_path }}/__init__.py
 
 @dist:
     pip install build

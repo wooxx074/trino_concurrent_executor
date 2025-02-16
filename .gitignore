@@ -2,7 +2,7 @@ __pycache__/
 *.egg-info/
 .venv
 bin
-src/python/trino_concurrent_executor/*
+output/trino_concurrent_executor/*
 build
 dist
 .DS_Store
