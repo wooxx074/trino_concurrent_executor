@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, ubuntu-latest-arm64, macos-latest] # Define the OS matrix
+        os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest] # Define the OS matrix
         python-version: [3.12, 3.13] # Optional: Add Python versions if needed
 
     steps:
