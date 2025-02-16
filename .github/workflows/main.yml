@@ -38,8 +38,8 @@ jobs:
         name: trino_concurrency_executor__gopy
         path: dist/
 
-   - name: Upload arifact to release
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        gh release upload ${{ github.ref_name }} ./dist/*.whl
+    - name: Upload arifact to release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload ${{ github.ref_name }} ./dist/*.whl
