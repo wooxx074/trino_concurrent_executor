@@ -12,7 +12,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, ubuntu-latest-arm64, macos-latest, windows-latest] # Define the OS matrix
         python-version: [3.12, 3.13] # Optional: Add Python versions if needed
-        
+
     steps:
     - uses: actions/checkout@v4
 
@@ -39,10 +39,11 @@ jobs:
       run: just dist
 
     - name: Upload artifacts
+      id: upload-artifact
       uses: actions/upload-artifact@v4
       with:
         name: trino_concurrency_executor__gopy
-        path: dist/
+        path: dist/${{ steps.upload-artifact.outputs.artifact-name }}
 
     - name: Upload arifact to release
       env:
