@@ -2,7 +2,7 @@
 name = "trino_concurrent_executor"
 version = "0.1"
 readme = "README.md"
-authors = [{ name = "Calvin Woo", email = "" }]
+authors = [{ name = "Calvin Woo", email = "wooxx074@gmail.com" }]
 license = { text = "MIT" }
 description = "GoPy example"
 requires-python = ">=3.7"
