@@ -29,6 +29,9 @@ jobs:
     - name: Build gopy library
       run: just build
       
+    - name: Make library into distributable
+      run: just dist
+
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
