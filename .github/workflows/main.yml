@@ -29,6 +29,9 @@ jobs:
     - name: Build gopy library
       run: just build
 
+    - name: Remove .gitignore
+      run: rm .gitignore
+      
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
