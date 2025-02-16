@@ -1,1 +1,0 @@
-from .trino_concurrent_executor import trino_concurrent_executor

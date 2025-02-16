@@ -28,7 +28,7 @@ export PATH := local_path
 
 @dist:
     pip install build
-    python -m build --wheel
+    python -m build --wheel ./output/trino_concurrent_executor --outdir ./dist
 
 # Remove build Go bindings
 @remove-build:
