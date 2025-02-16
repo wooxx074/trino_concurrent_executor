@@ -33,4 +33,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: gopy-library
-        path: src/
+        path: | 
+          src/
+          src/trino_concurrent_executor/go/py_build/*
