@@ -39,7 +39,7 @@ jobs:
       run: just dist
 
     - name: Rename distributable
-      run: mv ./dist/"$(find ./test -type f -printf "%f\n" | head -n 1)" ./dist/"trino-concurrency-executor-gopy-${{ github.ref_name }}-${{ matrix.os }}-python-${{ matrix.python-version }}.whl"
+      run: mv ./dist/"$(find ./dist -type f -printf "%f\n" | head -n 1)" ./dist/"trino-concurrency-executor-gopy-${{ github.ref_name }}-${{ matrix.os }}-python-${{ matrix.python-version }}.whl"
 
     - name: List directory contents
       run: ls -la ./dist
