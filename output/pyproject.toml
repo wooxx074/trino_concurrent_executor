@@ -16,7 +16,7 @@ where = ["."]  # Specify the root directory to search for packages
 include = ["trino_concurrent_executor"]
 
 [tool.setuptools.package-data]
-"*" = ["*.so", "*.py"]
+"*" = ["*.so", "*.py", "*.h"]
 
 [tool.cython]
 language_level = "3"
