@@ -1,0 +1,22 @@
+[project]
+name = "trino-concurrent-executor"
+version = "0.1"
+readme = "README.md"
+authors = [{ name = "Calvin Woo", email = "wooxx074@gmail.com" }]
+description = "Using Go to run concurrent Trino queries in Python."
+requires-python = ">=3.7"
+dependencies = ["pybindgen>=0.22.1"]
+
+[build-system]
+requires = ["setuptools>=66.0", "wheel", "Cython"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]  # Specify the root directory to search for packages
+include = ["trino_concurrent_executor"]
+
+[tool.setuptools.package-data]
+"*" = ["*.so", "*.py"]
+
+[tool.cython]
+language_level = "3"

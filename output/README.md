@@ -1,6 +1,3 @@
 # Trino Concurrent Executor
 
 WIP
-
-
-

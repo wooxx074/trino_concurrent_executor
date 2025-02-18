@@ -23,12 +23,12 @@ export PATH := local_path
 
 # Build Go bindings
 @build:
-    {{ local_bin }}/gopy pkg --output=./{{ gopy_build_path }} -no-make=true -rename=true -vm=python ./{{ go_dir }}/source
+    {{ local_bin }}/gopy build --output={{ gopy_build_path }} -no-make=true -rename=true -vm=python ./{{ go_dir }}
     # cp -f ./output/gopy_build__init__.py ./{{ gopy_build_path }}/__init__.py
 
 @dist:
     pip install build
-    python -m build --wheel ./output/trino_concurrent_executor --outdir ./dist
+    python -m build --wheel ./output --outdir ./dist
 
 # Remove build Go bindings
 @remove-build:
