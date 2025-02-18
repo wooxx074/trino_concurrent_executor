@@ -38,12 +38,8 @@ jobs:
     - name: Make library into distributable
       run: just dist
 
-    - name: Upload artifacts
-      id: upload-artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: trino-concurrency-executor-gopy-${{ github.ref_name }}-${{ matrix.os }}-python-${{ matrix.python-version }}
-        path: dist/
+    - name: Rename distributable
+      run: mv ./dist/"$(find ./test -type f -printf "%f\n" | head -n 1)" ./dist/"trino-concurrency-executor-gopy-${{ github.ref_name }}-${{ matrix.os }}-python-${{ matrix.python-version }}.whl"
 
     - name: List directory contents
       run: ls -la ./dist
@@ -52,6 +48,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-         echo "The uploaded artifact name is ${{ steps.upload-artifact.outputs.artifact-name }}"
-         echo "Releasing to ${{ github.ref_name }}"
-         gh release upload ${{ github.ref_name }} ./dist/${{ steps.upload-artifact.outputs.artifact-name }}
+         gh release upload ${{ github.ref_name }} ./dist/*
