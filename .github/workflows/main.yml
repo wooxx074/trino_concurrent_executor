@@ -44,18 +44,9 @@ jobs:
       with:
         name: trino_concurrency_executor__gopy-${{ matrix.os }}-python-${{ matrix.python-version }}
         path: dist/
-
-  upload-artifacts-to-release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          path: ./dist
-      - name: Upload arifact to release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release upload ${{ github.ref_name }} ./dist/trino_concurrency_executor__gopy*/*
+        
+    - name: Upload arifact to release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+         gh release upload ${{ github.ref_name }} ./dist/${{ steps.upload-artifact.artifact-name }}
