@@ -42,11 +42,16 @@ jobs:
       id: upload-artifact
       uses: actions/upload-artifact@v4
       with:
-        name: trino_concurrency_executor__gopy-${{ matrix.os }}-python-${{ matrix.python-version }}
+        name: trino-concurrency-executor-gopy-${{ github.ref_name }}-${{ matrix.os }}-python-${{ matrix.python-version }}
         path: dist/
-        
+
+    - name: List directory contents
+      run: ls -la ./dist
+
     - name: Upload arifact to release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-         gh release upload ${{ github.ref_name }} ./dist/${{ steps.upload-artifact.artifact-name }}
+         echo "The uploaded artifact name is ${{ steps.upload-artifact.outputs.artifact-name }}"
+         echo "Releasing to ${{ github.ref_name }}"
+         gh release upload ${{ github.ref_name }} ./dist/${{ steps.upload-artifact.outputs.artifact-name }}
