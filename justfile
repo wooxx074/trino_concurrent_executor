@@ -5,7 +5,7 @@ local_bin := justfile_directory() + "/bin"
 local_path := local_bin + ":" + env("PATH")
 
 python_lib_path := justfile_directory() + "/.python/site-packages" 
-python_path := python_lib_path + ":" + env("PYTHONPATH")
+python_path := python_lib_path + ":" + env("PYTHONPATH", "")
 
 export GOBIN := local_bin
 export PATH := local_path
