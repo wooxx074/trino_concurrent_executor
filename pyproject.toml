@@ -4,7 +4,7 @@ version = "0.1"
 readme = "README.md"
 authors = [{ name = "Calvin Woo", email = "wooxx074@gmail.com" }]
 description = "Using Go to run concurrent Trino queries in Python."
-requires-python = ">=3.7"
+requires-python = ">=3.12"
 dependencies = ["pybindgen>=0.22.1"]
 
 [build-system]
