@@ -23,7 +23,7 @@ export PATH := local_path
 
 # Build Go bindings
 @build:
-    {{ local_bin }}/gopy build --output={{ gopy_build_path }} -no-make=true -rename=true -vm=python ./{{ go_dir }}
+    {{ local_bin }}/gopy build --output={{ gopy_build_path }} -no-make=true -rename=true -vm=python3.12 ./{{ go_dir }}
     # cp -f ./output/gopy_build__init__.py ./{{ gopy_build_path }}/__init__.py
 
 @dist:
